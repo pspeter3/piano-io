@@ -4,14 +4,33 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    
+    <div id="piano">
+      <div class="piano-key white"></div>
+      <div class="piano-key white"></div>
+      <div class="piano-key white"></div>
+    </div>
+
+    <!-- Audio Section-->
+    <audio class="player" preload="auto">
+      <source src="audio/36.wav">
+    </audio>
+    
+    <!-- Css -->
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/piano.js"></script>
+    
     <script>
       var socket = io.connect('http://localhost');
       socket.on('helo', function (data) {
         console.log(data);
       });
     </script>
+
   </body>
 </html>

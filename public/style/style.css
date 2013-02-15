@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+}
+
+#piano {
+	height: 550px;
+}
+
+.piano-key {
+	-webkit-box-sizing: border-box;
+	float: left;
+	width: 33%;
+	height: 100%;
+}
+
+.white {
+	background: #F4F4F4;
+	border: 1px solid #626262;
+	border-top: none;
+	box-shadow: 0 -5px 2px 0px #838383 inset, 0 -60px 40px 10px #EEEEEE inset;
+	border-radius: 0 0 14px 14px;
+}
+
+.white:active {
+	box-shadow: 0 -5px 20px -3px #272927 inset;
+}
+
+audio {
+	height: 0;
+}
