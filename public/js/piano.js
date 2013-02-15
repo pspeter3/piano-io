@@ -1,14 +1,16 @@
 app = {
 
+	// @method initialize
+	// set current instant vars
 	initialize: function(id, numGroups) {
 		this.id = id;
-		this.numGroups
+		this.numGroups = numGroups;
 	},
 
 	// @method shouldPlay
 	// Returns true if the note falls in your group of notes.
-	shouldPlay: function(note, myGroup, numGroups) {
-		return (note % numGroups) === (myGroup % numGroups);
+	shouldPlay: function(note) {
+		return (note % this.numGroups) === (this.id % this.numGroups);
 	}
 
 };
@@ -29,7 +31,7 @@ $(document).ready(function() {
 
   socket.on('note', function (data) {
     
-    if (app.shouldPlay(data.id, id, group)) {
+    if (app.shouldPlay(data.id)) {
     	var tone = $audio.get(data.id);
     	tone.play();
     }
