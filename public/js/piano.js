@@ -18,7 +18,7 @@ $(document).ready(function() {
 		clientState.numGroups = data.numGroups || clientState.numGroups;
 	});
 
-	var $audio = $('audio#tone-3C');
+	var $audio = $('audio');
 	var $key = $('.piano-key');
 
 	$key.on('click', function() {
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   var socket = io.connect('http://localhost');
   socket.on('note', function (data) {
-    console.log(data.id);
+    console.log(data);
     var tone = $audio.get(data.id);
     tone.play();
   });
