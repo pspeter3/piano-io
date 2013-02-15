@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	// initialize socket to listen to localhost
-	var socket = io.connect('http://localhost');
+	var socket = io.connect('http://ppeter-mn');
   var id, group;
 
 	socket.on('balance', function(data){
 		id = data.id;
-    group = data.group;
+    group = data.groups;
 	});
 
 	var $audio = $('audio');
