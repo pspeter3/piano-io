@@ -3,7 +3,7 @@ app = {
 	// @method shouldPlay
 	// Returns true if the note falls in your group of notes.
 	shouldPlay: function(note, myGroup, numGroups) {
-		return true;
+		return (note % numGroups) === (myGroup % numGroups);
 	}
 
 };
