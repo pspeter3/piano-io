@@ -1,9 +1,8 @@
 $(document).ready(function() {
-	
-	
+
 
 	var $audio = $('audio#tone-3C');
-  var $key = $('.piano-key');
+	var $key = $('.piano-key');
 
 	$key.on('click', function() {
 		console.log('clicked');
