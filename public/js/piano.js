@@ -5,13 +5,15 @@ $(document).ready(function() {
     console.log(data);
   });
 
-	$audio = $('audio');
-  $button = $('.piano-key');
+	var $audio = $('audio#tone-3C');
+  var $key = $('.piano-key');
 
-	$button.on('click', function() {
-		var key = $audio.get(0);
-		key.pause();
-		key.currentTime = 0;
-		key.play();
+	$key.on('click', function() {
+		console.log('clicked');
+
+		var tone = $audio.get(0);
+		tone.pause();
+		tone.currentTime = 0;
+		tone.play();
   });
 });
