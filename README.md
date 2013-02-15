@@ -1,4 +1,4 @@
-piano-io
+Piano IO
 ========
 
-A socket.io music client
+A distributed music client built with express and socket.io
