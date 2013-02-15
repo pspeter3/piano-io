@@ -1,3 +1,13 @@
+app = {
+
+	// @method shouldPlay
+	// Returns true if the note falls in your group of notes.
+	shouldPlay: function(note, myGroup, numGroups) {
+		return true;
+	}
+
+};
+
 $(document).ready(function() {
 	// initialize socket to listen to localhost
 	var socket = io.connect('http://localhost');
@@ -12,9 +22,11 @@ $(document).ready(function() {
 	var $key = $('.piano-key');
 
   socket.on('note', function (data) {
-    console.log(data);
-    var tone = $audio.get(data.id);
-    tone.play();
+    
+    if (app.shouldPlay(data.id, id, group)) {
+    	var tone = $audio.get(data.id);
+    	tone.play();
+    }
   });
 
   socket.on('helo', function(data) {
