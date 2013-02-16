@@ -11,13 +11,19 @@ app = {
 	// Returns true if the note falls in your group of notes.
 	shouldPlay: function(note) {
 		return (note % this.numGroups) === (this.id % this.numGroups);
+	},
+
+	play: function(audio) {
+  	audio.duration = 1;
+  	audio.currentTime = 0;
+		audio.play();	
 	}
 
 };
 
 $(document).ready(function() {
 	// initialize socket to listen to localhost
-	var socket = io.connect('http://ppeter-mn');
+	var socket = io.connect('http://localhost');
 
 	socket.on('balance', function(data){
 		var id = data.id;
@@ -28,18 +34,19 @@ $(document).ready(function() {
 
 	var $audio = $('audio');
 	var $key = $('.piano-key');
-  var tone;
 
   socket.on('note', function (data) {
     
     if (app.shouldPlay(data.id)) {
-      if (tone) tone.pause();
-    	tone = $audio.get(data.id);
-    	tone.play();
+      app.play($audio.get(data.id));
     }
   });
 
   socket.on('helo', function(data) {
     console.log(data);
+  });
+
+  $key.on('click', function(){
+  	app.play($audio.get(0));
   });
 });
