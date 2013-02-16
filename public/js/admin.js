@@ -1,18 +1,14 @@
+// Socket IO variable
+var socket = io.connect('http://ppeter-mn');
+var sendNote = function(id) {
+  socket.emit('note', {id: id});
+};
+
+var click = function() {
+  var id = $(this).find('h2.note').attr('id');
+  sendNote(id);
+};
+
 $(function() {
-  // Socket IO variable
-  var socket = io.connect('http://ppeter-mn');
-  // H1 Node
-  var $header = $('h1.note');
-
-  var displayNote = function(id) {
-    $header.html(id);
-  };
-  
-  var keyHandler = function(event) {
-    var id = event.which % 88;
-    socket.emit('note', {id: id});
-    displayNote(id);
-  };
-
-  $(document).bind('keypress', keyHandler);
+  $('.thumbnail').click(click);
 });

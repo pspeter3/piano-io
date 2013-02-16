@@ -33,7 +33,6 @@ $(document).ready(function() {
   socket.on('note', function (data) {
     
     if (app.shouldPlay(data.id)) {
-      if (tone) tone.pause();
     	tone = $audio.get(data.id);
     	tone.play();
     }
