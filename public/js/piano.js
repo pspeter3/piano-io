@@ -23,7 +23,7 @@ app = {
 
 $(document).ready(function() {
 	// initialize socket to listen to localhost
-	var socket = io.connect('http://localhost');
+	var socket = io.connect('http://192.168.1.59');
 
 	socket.on('balance', function(data){
 		var id = data.id;

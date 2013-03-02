@@ -1,5 +1,5 @@
 // Socket IO variable
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://192.168.1.59');
 
 var notes = ['c', 'C', 'd', 'D', 'e', 'f', 'F', 'g', 'G', 'a', 'A', 'b'];
 
